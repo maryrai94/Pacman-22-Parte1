@@ -30,9 +30,9 @@ void Setup() {
 		}
 	}
 
-	map[10][10] = TILES::POINT;
-	map[10][11] = TILES::POINT;
-	map[10][12] = TILES::POINT;
+	map[10][50] = TILES::POINT;
+	map[10][51] = TILES::POINT;
+	map[10][52] = TILES::POINT;
 
 	map[10][0] = TILES::EMPTY;
 	map[11][0] = TILES::EMPTY;
@@ -43,6 +43,16 @@ void Setup() {
 	map[11][MAP_HORIZONTAL - 1] = TILES::EMPTY;
 	map[12][MAP_HORIZONTAL - 1] = TILES::EMPTY;
 	map[13][MAP_HORIZONTAL - 1] = TILES::EMPTY;
+
+	for (size_t i = 0; i < MAP_VERTICAL; i++)
+	{
+		for (size_t j = 0; j < MAP_HORIZONTAL; j++)
+		{
+			if (map[i][j] == TILES::POINT) {
+				puntuacion_total++;
+			}
+		}
+	}
 }
 
 
@@ -131,6 +141,7 @@ void Draw() {
 		}
 		std::cout << std::endl;
 	}
+	std::cout << puntuacion_actual << '/' << puntuacion_total;
 }
 
 int main()
